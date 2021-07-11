@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Contact } from 'src/app/models/contact.model';
 import { HttpService } from 'src/app/services/http-service';
 import { ConfirmDialog } from './confirm-dialog/confirm-dialog.component';
@@ -24,7 +25,10 @@ export class ListComponent implements OnInit {
     'actions',
   ];
 
-  constructor(private httpService: HttpService, public dialog: MatDialog) {}
+  constructor(
+    private httpService: HttpService, 
+    public dialog: MatDialog,
+    private router: Router) {}
 
   async ngOnInit() {
     this.dataSource = await this.httpService.get('contacts');
@@ -40,5 +44,9 @@ export class ListComponent implements OnInit {
       }
     });
   }
-  register() {}
+
+  register() {
+
+    this.router.navigate(['register'])
+  }
 }
