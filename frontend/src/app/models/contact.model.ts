@@ -1,9 +1,8 @@
-import { ContactType } from "./contactType.model";
+import { ContactType } from './contactType.model';
 
-export class Contact {
-
-    id?: number
-    name: string
-    contactNumber: number
-    contactType: ContactType
+export interface Contact {
+  id?: number;
+  name: string;
+  contactNumber: string;
+  contactType: ContactType;
 }

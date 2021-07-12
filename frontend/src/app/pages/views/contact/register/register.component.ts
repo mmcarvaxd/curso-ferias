@@ -11,8 +11,9 @@ import { ContactType } from 'src/app/models/contactType.model';
 export class RegisterComponent implements OnInit {
 
   registerFormGroup: FormGroup
+  formSubmitted: boolean = false
 
-  contact: Contact = new Contact()
+  contact: Contact
   contactTypes: ContactType[] = [
 
     {
@@ -41,6 +42,16 @@ export class RegisterComponent implements OnInit {
       contactNumber: ['', [Validators.required]],
       contactType: ['', [Validators.required]]
     })
+  }
+
+  register(): void {
+
+    this.formSubmitted = true
+
+    if(this.registerFormGroup.valid) {
+
+      console.log('tudo certo!')
+    }
   }
 
 }
